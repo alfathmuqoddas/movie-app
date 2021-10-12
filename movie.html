@@ -26,22 +26,7 @@
 
     <section class="mt-5">
       <div class="container">
-        <form class="form-floating" id="searchForm">
-          <input
-            type="text"
-            class="form-control"
-            id="searchText"
-            placeholder="Search Movies"
-          />
-          <label for="searchText">Search Movies</label>
-          <input type="submit" value="Search" class="btn btn-primary mt-3" />
-        </form>
-      </div>
-    </section>
-
-    <section class="mt-5">
-      <div class="container">
-        <div class="row" id="movies"></div>
+        <div class="well" id="movie"></div>
       </div>
     </section>
 
@@ -52,5 +37,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.22.0/dist/axios.min.js"></script>
+    <script>
+      getMovie();
+    </script>
   </body>
 </html>
