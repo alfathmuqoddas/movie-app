@@ -15,13 +15,13 @@ function getMovies(searchText) {
       let output = "";
       $.each(movies, (index, movie) => {
         output += `
-          <div class="col-md-4 col-6 mb-4">
+          <div class="col-md-3 col-6 mb-4">
             <div class="card" style="width:100%;">
               <img src="${movie.Poster}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">${movie.Title}</h5>
                 <p class="card-text">${movie.Year}</p>
-                <a onClick="movieSelected('${movie.imdbID}')" href="#" class="btn btn-primary">More Info</a>
+                <a onclick="movieSelected('${movie.imdbID}')" href="#" class="btn btn-primary">More Info</a>
               </div>
             </div>
           </div>
@@ -34,4 +34,8 @@ function getMovies(searchText) {
     });
 }
 
-function movieSelected(id) {}
+function movieSelected(id) {
+  sessionStorage.setItem("movieID", id);
+  window.location = "movie.html";
+  return false;
+}
