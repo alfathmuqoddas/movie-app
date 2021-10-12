@@ -10,14 +10,13 @@ function getMovies(searchText) {
   axios
     .get("https://www.omdbapi.com/?s=" + searchText + "&apikey=af1284eb&")
     .then((res) => {
-      console.log(res);
       let movies = res.data.Search;
       let output = "";
       $.each(movies, (index, movie) => {
         output += `
           <div class="col-md-3 col-6 mb-4">
             <div class="card" style="width:100%;">
-              <img src="${movie.Poster}" class="card-img-top" alt="...">
+              <img src="${movie.Poster}" class="card-img-top" alt="..." style="height:320px;">
               <div class="card-body">
                 <h5 class="card-title">${movie.Title}</h5>
                 <p class="card-text">${movie.Year}</p>
@@ -35,7 +34,7 @@ function getMovies(searchText) {
 }
 
 function movieSelected(id) {
-  sessionStorage.setItem("movieID", id);
+  sessionStorage.setItem("movieId", id);
   window.location = "movie.html";
   return false;
 }
