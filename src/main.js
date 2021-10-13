@@ -47,7 +47,7 @@ function getMovie() {
       let movie = res.data;
       console.log(res);
       let output = `
-      <div class="row">
+      <div class="row mb-5">
 		<div class="col-12 col-md-4 text-center">
 			<img src="${movie.Poster}" alt="movie-poster" class="img-fluid" />
 		</div>
@@ -55,11 +55,12 @@ function getMovie() {
 			<h2 class="my-4">${movie.Title} <small>(${movie.Year})</small></h2>
 			<p>${movie.Plot}</p>
 			<ul class="list-group">
-				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
-				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
-				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
-				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
-				
+				<li class="list-group-item">${movie.Genre}</li>
+				<li class="list-group-item"><strong>Director:</strong> ${movie.Director}</li>
+				<li class="list-group-item"><strong>Writer:</strong> ${movie.Writer}</li>
+				<li class="list-group-item"><strong>Starring:</strong> ${movie.Actors}</li>
+				<li class="list-group-item"><strong>Release:</strong> ${movie.Released}</li>
+				<li class="list-group-item"><strong>Duraion:</strong> ${movie.Runtime}</li>
 			</ul>
 		</div>
       </div>
