@@ -38,3 +38,35 @@ function movieSelected(id) {
   window.location = "movie.html";
   return false;
 }
+
+function getMovie() {
+  let movieId = sessionStorage.getItem("movieId");
+  axios
+    .get("https://www.omdbapi.com/?i=" + movieId + "&apikey=af1284eb&")
+    .then((res) => {
+      let movie = res.data;
+      console.log(res);
+      let output = `
+      <div class="row">
+		<div class="col-12 col-md-4 text-center">
+			<img src="${movie.Poster}" alt="movie-poster" class="img-fluid" />
+		</div>
+		<div class="col-12 col-md-8">
+			<h2 class="my-4">${movie.Title} <small>(${movie.Year})</small></h2>
+			<p>${movie.Plot}</p>
+			<ul class="list-group">
+				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
+				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
+				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
+				<li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
+				
+			</ul>
+		</div>
+      </div>
+      `;
+      $("#movie").html(output);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
