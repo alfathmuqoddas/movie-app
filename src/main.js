@@ -48,21 +48,31 @@ function getMovie() {
       console.log(res);
       let output = `
       <div class="row mb-5">
-		<div class="col-12 col-md-4 text-center">
-			<img src="${movie.Poster}" alt="movie-poster" class="img-fluid" />
-		</div>
-		<div class="col-12 col-md-8">
-			<h2 class="my-4">${movie.Title} <small>(${movie.Year})</small></h2>
-			<p>${movie.Plot}</p>
-			<ul class="list-group">
-				<li class="list-group-item">${movie.Genre}</li>
-				<li class="list-group-item"><strong>Director:</strong> ${movie.Director}</li>
-				<li class="list-group-item"><strong>Writer:</strong> ${movie.Writer}</li>
-				<li class="list-group-item"><strong>Starring:</strong> ${movie.Actors}</li>
-				<li class="list-group-item"><strong>Release:</strong> ${movie.Released}</li>
-				<li class="list-group-item"><strong>Duraion:</strong> ${movie.Runtime}</li>
-			</ul>
-		</div>
+        <div class="col-12 col-md-4 text-center">
+          <img src="${movie.Poster}" alt="movie-poster" class="img-fluid" />
+        </div>
+        <div class="col-12 col-md-8">
+          <h2 class="my-4">${movie.Title} <small>(${movie.Year})</small></h2>
+          <div class="d-flex gap-4 mb-3">
+            <div class="">
+              <p class="mb-1">IMDb Rating</p>
+              <h1>${movie.imdbRating}/<small>10</small></h1>
+            </div>
+            <div class="">
+              <p class="mb-1">Metascore</p>
+              <h1>${movie.Metascore}/<small>100</small></h1>
+            </div>
+          </div>
+          <p>${movie.Plot}</p>
+          <ul class="list-group">
+            <li class="list-group-item">${movie.Genre}</li>
+            <li class="list-group-item"><strong>Director:</strong> ${movie.Director}</li>
+            <li class="list-group-item"><strong>Writer:</strong> ${movie.Writer}</li>
+            <li class="list-group-item"><strong>Starring:</strong> ${movie.Actors}</li>
+            <li class="list-group-item"><strong>Release:</strong> ${movie.Released}</li>
+            <li class="list-group-item"><strong>Duraion:</strong> ${movie.Runtime}</li>
+          </ul>
+        </div>
       </div>
       `;
       $("#movie").html(output);
